@@ -1,20 +1,22 @@
 import { useState } from "react";
 
 export default function UserForm({ onSave }) {
-  const [user, setUser] = useState({
-    Name: "",
-    Email: "",
-    Mobile: "",
-    Age: "",
-    Address: "",
-    Role: "",
-    Status: "Active",
-  });
+  const initialState = {
+    name: "",
+    email: "",
+    mobile: "",
+    age: "",
+    address: "",
+    role: "",
+    status: "Active",
+  };
+
+  const [user, setUser] = useState(initialState);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSave(user);
-    setUser({});
+    setUser(initialState); // reset form
   };
 
   return (
@@ -30,6 +32,7 @@ export default function UserForm({ onSave }) {
           className="border p-2"
         />
       ))}
+
       <button className="col-span-2 bg-blue-600 text-white p-2">
         Save User
       </button>

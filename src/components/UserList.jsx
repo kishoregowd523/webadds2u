@@ -10,9 +10,10 @@ export default function UserList({ users, onDelete }) {
           <th>Action</th>
         </tr>
       </thead>
+
       <tbody>
         {users.map((u, i) => (
-          <tr key={i} className="text-center border">
+          <tr key={u.email || i} className="text-center border">
             <td>{u.name}</td>
             <td>{u.email}</td>
             <td>{u.role}</td>
